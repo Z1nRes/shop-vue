@@ -1,6 +1,6 @@
 <template>
   <div class=" container">
-    <product-list></product-list>
+    <login-form></login-form>
   </div>
 </template>
 
@@ -10,9 +10,11 @@
 
 <script>
   import ProductList from './components/ProductList.vue';
+  import LoginForm from './components/LoginForm.vue';
   export default {
     components: {
-      ProductList
+      ProductList,
+      LoginForm
     }
   };
 </script>
