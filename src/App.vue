@@ -1,12 +1,9 @@
 <template>
   <div class=" container">
-    <p v-if="$store.getters.isAuth">Вы авторизованны! - {{ $store.getters.isAuth }} - <span class="border border-danger p-2" @click="LOGOUT">LOGOUT</span></p>
-    <p v-if="!$store.getters.isAuth">Вы не авторизованны! - {{ $store.getters.isAuth }}</p>
+    <header-top></header-top>
     <hr>
-    <signup-form></signup-form>
-    <hr>
-    <login-form></login-form>
-  </div>
+    <router-view></router-view>
+</div>
 </template>
 
 <style>
@@ -14,19 +11,11 @@
 </style>
 
 <script>
-  import { mapMutations } from 'vuex';
-  import ProductList from './components/ProductList.vue';
-  import LoginForm from './components/LoginForm.vue';
-  import SignupForm from './components/SignupForm.vue';
+  import HeaderTop from './components/HeaderTop.vue';
 
   export default {
     components: {
-      ProductList,
-      LoginForm,
-      SignupForm
+      HeaderTop,
     },
-    methods: {
-      ...mapMutations(['LOGOUT'])
-    }
   };
 </script>

@@ -53,7 +53,6 @@ export default createStore({
         state.token = ''
       },
       LOGOUT: (state) => {
-        console.log('work')
         localStorage.removeItem('myAppToken');
         state.token = ''
       }

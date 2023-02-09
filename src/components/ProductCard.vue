@@ -1,13 +1,11 @@
 <template>
-    <div class="d-flex flex-wrap">
-      <div class="card card-style" v-for="product in allProducts.data" :key="product.id">
+      <div class="card card-style"  v-for="product in allProducts.data" :key="product.id">
         <div class="card-body card-body-style">
           <h5 class="card-title">{{ product.name }} - ({{ product.price }} &#36;)</h5>
           <p class="card-text">{{ product.description }}</p>
-          <a href="#" class="btn btn-primary btn-style">Add to cart</a>
+          <a v-if="$store.getters.isAuth" href="#" class="btn btn-primary btn-style">Add to cart</a>
         </div>
       </div>
-    </div>
 </template>
 
 <style>
@@ -28,10 +26,11 @@
 
 <script>
     import {mapGetters} from 'vuex';
+
     export default {
-        computed: mapGetters(['allProducts']),
         async mounted() {
             this.$store.dispatch('fetchProducts')
-        }
-    };
+        },
+        computed: mapGetters(['allProducts']),
+    }
 </script>
