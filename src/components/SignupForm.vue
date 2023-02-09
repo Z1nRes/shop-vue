@@ -32,7 +32,8 @@
             return {
                 fio: '',
                 email: '',
-                password: ''
+                password: '',
+                url: 'signup'
             }
         },
         methods: {
@@ -43,7 +44,7 @@
                     password: this.password
                 }
                 this.$store
-                    .dispatch('SIGNUP_REQUEST', userData)
+                    .dispatch('AUTH_REQUEST', {user: userData, url: this.url})
                     .then(() => this.$router.push("/"))
             }
         }

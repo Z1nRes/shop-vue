@@ -27,7 +27,8 @@
         data() {
             return {
                 email: '',
-                password: ''
+                password: '',
+                url: 'login'
             }
         },
         methods: {
@@ -37,7 +38,7 @@
                     password: this.password
                 }
                 this.$store
-                    .dispatch('AUTH_REQUEST', userData)
+                    .dispatch('AUTH_REQUEST', {user: userData, url: this.url})
                     .then(() => this.$router.push("/"))
             }
         }
