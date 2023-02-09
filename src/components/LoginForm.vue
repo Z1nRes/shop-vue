@@ -2,7 +2,7 @@
     <form method="POST" @submit.prevent="submit" class="form">
         <h1 class="headline">Login</h1>
         <div class="mb-3">
-            <label for="username" class="form-label">User name</label>
+            <label for="username" class="form-label">email </label>
             <input type="text" class="form-control" id="username" required v-model="username">
         </div>
         <div class="mb-3">
@@ -33,12 +33,12 @@
         methods: {
             submit() {
                 const userData = {
-                    username: this.username,
+                    email: this.username,
                     password: this.password
                 }
                 this.$store
-                    .dispatch(AUTH_REQUEST, userData)
-                    // .then(() => this.$router.push("/")
+                    .dispatch('AUTH_REQUEST', userData)
+                    .then(() => this.$router.push("/"))
                     console.log(localStorage.myAppToken)
             }
         }

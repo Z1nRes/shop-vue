@@ -2,7 +2,7 @@ const api = 'https://jurapro.bhuser.ru/api-shop/'
 
 export const loginRequest = (user) => {
     return new Promise((resolve, reject) => {
-        fetch(`${api}/login`, {
+        fetch(`${api}login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8',
