@@ -13,6 +13,7 @@ export const loginRequest = (inputData) => {
             .then((result) => resolve(result.data.user_token))
             .catch((error) => {
                 reject(error)
+                
             })
     })
 }
