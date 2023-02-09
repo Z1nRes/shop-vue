@@ -8,6 +8,7 @@ export default createStore({
         const products = await res.json()
         ctx.commit('updateProducts', products)
     },
+
     AUTH_REQUEST: ({commit}, user) => {
       return new Promise((resolve, reject) => {
         loginRequest(user)
@@ -49,6 +50,11 @@ export default createStore({
         state.token = token
       },
       AUTH_ERROR: (state) => {
+        state.token = ''
+      },
+      LOGOUT: (state) => {
+        console.log('work')
+        localStorage.removeItem('myAppToken');
         state.token = ''
       }
   },

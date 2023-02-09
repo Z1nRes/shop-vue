@@ -45,7 +45,6 @@
                 this.$store
                     .dispatch('SIGNUP_REQUEST', userData)
                     .then(() => this.$router.push("/"))
-                    console.log(localStorage.myAppToken)
             }
         }
     }
