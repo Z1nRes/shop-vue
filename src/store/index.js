@@ -1,5 +1,5 @@
 import { createStore } from 'vuex'
-import { loginRequest } from '@/utils/api'
+import { loginRequest, signupRequest } from '@/utils/api'
 
 export default createStore({
   actions: {
@@ -22,7 +22,24 @@ export default createStore({
             reject();
           })
       })
+    },
+
+    SIGNUP_REQUEST: ({commit}, user) => {
+      return new Promise((resolve, reject) => {
+        signupRequest(user)
+          .then((token) => {
+            commit('AUTH_SUCCESS', token);
+            localStorage.setItem('myAppToken', token);
+            resolve();
+          })
+          .catch(() => {
+            commit('AUTH_ERROR');
+            localStorage.removeItem('myAppToken');
+            reject();
+          })
+      })
     }
+
   },
   mutations: {
       updateProducts(state, products) {
