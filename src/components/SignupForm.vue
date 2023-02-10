@@ -8,7 +8,7 @@
         </div>
         <div class="mb-3">
             <label for="email" class="form-label">email </label>
-            <input type="text" class="form-control" id="email" v-model="email" :class="{'border border-danger': this.emailError.length != 0}">
+            <input type="email" class="form-control" id="email" v-model="email" :class="{'border border-danger': this.emailError.length != 0}">
             <div v-if="this.emailError.length != 0" id="emailError" class="form-text text-danger">{{ this.emailError }}</div>
         </div>
         <div class="mb-3">

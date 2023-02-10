@@ -1,5 +1,6 @@
 import { createStore } from 'vuex'
-import { loginRequest, signupRequest } from '@/utils/api'
+import { cartRequest, loginRequest, signupRequest } from '@/utils/api'
+import router from '@/router'
 
 export default createStore({
   actions: {
@@ -24,6 +25,19 @@ export default createStore({
           })
       })
     },
+
+    async ADD_TO_CART({commit}, product) {
+      await fetch(`https://jurapro.bhuser.ru/api-shop/cart/${product.id}`, {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+              'Authorization': 'Bearer ' + this.state.token
+          },
+        })
+          .then((response) => {
+            router.push('/')
+        })
+    }
 
   },
   mutations: {

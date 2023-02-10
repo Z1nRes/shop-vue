@@ -3,7 +3,7 @@
         <div class="card-body card-body-style">
           <h5 class="card-title">{{ product.name }} - ({{ product.price }} &#36;)</h5>
           <p class="card-text">{{ product.description }}</p>
-          <a v-if="$store.getters.isAuth" href="#" class="btn btn-primary btn-style">Add to cart</a>
+          <a v-if="$store.getters.isAuth" href="#" class="btn btn-primary btn-style" @click="addToCart(product)">Add to cart</a>
         </div>
       </div>
 </template>
@@ -32,5 +32,11 @@
             this.$store.dispatch('fetchProducts')
         },
         computed: mapGetters(['allProducts']),
+        methods: {
+            addToCart(product) {
+                this.$store.dispatch('ADD_TO_CART', product)
+                console.log(product.id)
+            }
+        }
     }
 </script>
